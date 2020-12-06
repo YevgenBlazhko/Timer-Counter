@@ -54,7 +54,6 @@ class MainActivity : AppCompatActivity() {
   private fun setInitValues() {
     val time = pref.get(Constants.lastTime)
     val number = pref.get(Constants.number)
-    Log.i("TAG", "time: $time")
     time?.let { lastLaunchTimeTxt.text = "Last launch: \n$time" }
     number?.let { countValueTxt.text = "Actual value: \n$number" }
   }
@@ -63,7 +62,6 @@ class MainActivity : AppCompatActivity() {
     override fun onReceive(context: Context, intent: Intent) {
       val time = intent.getStringExtra(Constants.lastTime)
       val number = intent.getStringExtra(Constants.number)
-      Log.i("TAG", "time: $time")
       if (time != null) lastLaunchTimeTxt.text = "Last launch: \n$time"
       else if (number != null) countValueTxt.text = "Actual value: \n$number"
     }
